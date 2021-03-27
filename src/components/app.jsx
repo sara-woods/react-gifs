@@ -15,7 +15,11 @@ class App extends Component {
     }
   }
   
-
+  setGif = (id) => {
+    this.setState({
+      selectedGifId: id
+    });
+  }
 
   search = (query) => {
     // API call
@@ -32,7 +36,7 @@ class App extends Component {
   }
 
   render() {
-   return (
+    return (
       <div>
         <div className="left-scene">
           <Searchbar searchFunction={this.search} />
@@ -41,7 +45,7 @@ class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} setGifFunction={this.setGif} />
         </div>
       </div>
     )
